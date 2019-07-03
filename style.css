@@ -1,0 +1,17 @@
+.h1 {
+	font-family: Calibri, "Calibri";
+	text-align: center;
+	font-size: 32px;
+	color: #5F9EA0
+}
+
+.h2 {
+	font-family: Calibri, "Calibri";
+	font-size: 24px;
+	color: #5F9EA0
+}
+
+.body {
+	font-family: Calibri, "Calibri";
+	font-size: 12px;
+}
