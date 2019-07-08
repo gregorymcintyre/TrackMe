@@ -1,3 +1,6 @@
+$('#navbar').load('navbar.html');
+$('#footer').load('footer.html');
+
 //const devices = [];
 
 //devices.push({ user: "Mary", name: "Mary's iPhone" });
