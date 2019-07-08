@@ -13,10 +13,9 @@ devices.forEach(function(device) {
 	);
 });
 
-document.querySelector('#add-device').addEventListener('click',
-function() {
-	const user = document.querySelector('#user').value;
-	const name = document.querySelector('#name').value;
+$('#add-device').on('click', function() {
+	const user = $('#user').val();
+	const name = $('#name').val();
 	devices.push({ user: user, name: name });
 	console.log(devices);
 });
