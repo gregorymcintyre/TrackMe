@@ -16,6 +16,6 @@ devices.forEach(function(device) {
 $('#add-device').on('click', function() {
 	const user = $('#user').val();
 	const name = $('#name').val();
-	devices.push({ user: user, name: name });
+	devices.push({ user, name });
 	console.log(devices);
 });
