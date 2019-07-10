@@ -3,10 +3,7 @@ $('#footer').load('footer.html');
 
 const devices = JSON.parse(localStorage.getItem('devices')) || [];
 const users = JSON.parse(localStorage.getItem('users')) || [];
-
-const username = JSON.parse(localStorage.getItem('username')) || [];
-const passwordinput = JSON.parse(localStorage.getItem('passwordinput')) || [];
-const confirmpassword = JSON.parse(localStorage.getItem('confirmpassword')) || [];
+const isAuthenticated = localStorage.getItem('isAuthenticated') || false;
 
 devices.forEach(function(device) {
 	$('#devices tbody').append(`
@@ -53,6 +50,33 @@ $('#add-user').on('click', function() {
 		}
 	}
 
+});
+
+$('#login').on('click', function() {
+	
+	const username = $('#username').val();
+	const password = $('#password').val();
+	
+	var passwordMatch=false;
+	
+	const exists = users.find(users => users.username === username);
+	
+	if(exists){
+		users.find(users => {
+			if(users.username===username && users.passwordinput === password){
+				passwordMatch=true;
+			}
+		});
+		
+		if(passwordMatch){
+			localStorage.setItem('isAuthenticated', true);
+			location.href = '/';
+		}else{
+			alert("Incorrect Password");
+		}
+	}else{
+		alert("User does not exist");
+	}
 });
 
 $('#send-command').on('click', function() {

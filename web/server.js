@@ -26,8 +26,8 @@ app.get('/about', (req, res) => {
 	res.sendFile(`${base}/about-me.html`);
 });
 
-app.get('/register', (req, res) => {
-	res.sendFile(`${base}/register.html`);
+app.get('/registration', (req, res) => {
+	res.sendFile(`${base}/registration.html`);
 });
 
 app.get('/login', (req, res) => {
