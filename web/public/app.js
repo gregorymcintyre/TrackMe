@@ -1,13 +1,12 @@
 $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 
-//const devices = [];
-
-//devices.push({ user: "Mary", name: "Mary's iPhone" });
-//devices.push({ user: "Alex", name: "Alex's Surface Pro" });
-//devices.push({ user: "Mary", name: "Mary's MacBook" });
-
 const devices = JSON.parse(localStorage.getItem('devices')) || [];
+const users = JSON.parse(localStorage.getItem('users')) || [];
+
+const username = JSON.parse(localStorage.getItem('username')) || [];
+const passwordinput = JSON.parse(localStorage.getItem('passwordinput')) || [];
+const confirmpassword = JSON.parse(localStorage.getItem('confirmpassword')) || [];
 
 devices.forEach(function(device) {
 	$('#devices tbody').append(`
@@ -25,6 +24,35 @@ $('#add-device').on('click', function() {
 	localStorage.setItem('devices', JSON.stringify(devices));
 	//console.log(devices);
 	location.href = '/';
+});
+
+$('#add-user').on('click', function() {
+	
+	const username = $('#username').val();
+	const passwordinput = $('#passwordinput').val();
+	const confirmpassword = $('#confirmpassword').val();
+	
+	const exists = users.find(users => users.username === username);
+	
+	//const exists = users.find((user) => {
+	//	return user.username === username;
+	//});
+	
+	if(exists){
+		alert("User exists");
+		location.reload();
+	}else{
+		if (passwordinput === confirmpassword){
+			users.push({ username, passwordinput });
+			localStorage.setItem('users', JSON.stringify(users));
+			alert("User added");
+			location.href = '/login';
+		} else{
+			alert("Passwords did not match");
+			location.reload();
+		}
+	}
+
 });
 
 $('#send-command').on('click', function() {
