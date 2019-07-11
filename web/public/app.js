@@ -19,7 +19,6 @@ $('#add-device').on('click', function() {
 	const name = $('#name').val();
 	devices.push({ user, name });
 	localStorage.setItem('devices', JSON.stringify(devices));
-	//console.log(devices);
 	location.href = '/';
 });
 
@@ -29,11 +28,7 @@ $('#add-user').on('click', function() {
 	const passwordinput = $('#passwordinput').val();
 	const confirmpassword = $('#confirmpassword').val();
 	
-	const exists = users.find(users => users.username === username);
-	
-	//const exists = users.find((user) => {
-	//	return user.username === username;
-	//});
+	const exists = users.find(user => user.username === username);
 	
 	if(exists){
 		alert("User exists");
@@ -59,11 +54,11 @@ $('#login').on('click', function() {
 	
 	var passwordMatch=false;
 	
-	const exists = users.find(users => users.username === username);
+	const exists = users.find(user => user.username === username);
 	
 	if(exists){
-		users.find(users => {
-			if(users.username===username && users.passwordinput === password){
+		users.find(user => {
+			if(user.username===username && user.passwordinput === password){
 				passwordMatch=true;
 			}
 		});
