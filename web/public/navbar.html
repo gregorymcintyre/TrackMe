@@ -12,3 +12,14 @@
 		</div>
 	</div>
 </nav>
+
+<script>
+	isAuthenticated = localStorage.getItem('isAuthenticated');
+	console.log(isAuthenticated);		//testing
+	const logoutElement = '<a class="nav-item nav-link" onClick="logout()">Logout</a>';
+	const loginElement = '<a class="nav-item nav-link" href="/login">Login</a>';
+	
+	isAuthenticated
+		? $('#expanded-nav').append(logoutElement)
+		: $('#expanded-nav').append(loginElement);
+</script>

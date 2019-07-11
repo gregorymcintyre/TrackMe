@@ -3,7 +3,7 @@ $('#footer').load('footer.html');
 
 const devices = JSON.parse(localStorage.getItem('devices')) || [];
 const users = JSON.parse(localStorage.getItem('users')) || [];
-const isAuthenticated = localStorage.getItem('isAuthenticated') || false;
+var isAuthenticated = localStorage.getItem('isAuthenticated');
 
 devices.forEach(function(device) {
 	$('#devices tbody').append(`
@@ -72,6 +72,7 @@ $('#login').on('click', function() {
 			localStorage.setItem('isAuthenticated', true);
 			location.href = '/';
 		}else{
+			localStorage.removeItem('isAuthenticated');  //testing
 			alert("Incorrect Password");
 		}
 	}else{
@@ -83,3 +84,8 @@ $('#send-command').on('click', function() {
 	const command = $('#command').val();
 	console.log(`command is: ${command}`);
 });
+
+const logout = () => {
+	localStorage.removeItem('isAuthenticated');
+	location.href = '/login';
+}
