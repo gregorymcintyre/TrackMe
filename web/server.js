@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 //port for the web server to listen to and a base url
-const port = 3000;
+const port = process.env.PORT || 3000;
 const base = `${__dirname}/public`;
 
 //middleware to server static files

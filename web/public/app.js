@@ -2,19 +2,22 @@ $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 
 const users = JSON.parse(localStorage.getItem('users')) || [];
+const API_URL = 'http://localhost:5000/api';
 var isAuthenticated = localStorage.getItem('isAuthenticated');
 //const devices = JSON.parse(localStorage.getItem('devices')) || [];
 //const response = $.get('http://localhost:3001/devices');
 //	console.log(response);
 
-$.get('http://localhost:3001/devices')
+$.get('http://localhost:5000/api/devices')
 .then(response => {
 	response.forEach(device => {
-		$('#devices tbody').append(`
+		$('#devices tbody').append(
+			`
 			<tr>
 				<td>${device.user}</td>
 				<td>${device.name}</td>
-			</tr>`
+			</tr>
+			`
 		);
 	});
 })
@@ -45,7 +48,7 @@ const body = {
 	user,
 	sensorData
 };
-	$.post('http://localhost:3001/devices', body)
+	$.post(`${API_URL}/devices`, body)
 	.then(response => {
 		location.href = '/';
 	})
