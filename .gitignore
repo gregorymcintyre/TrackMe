@@ -1,3 +1,8 @@
-# node packages
+# Node packages
 */node_modules
+
+#Personal backup folder
 /backup
+
+#generated documentation
+*/public/generated-docs/
