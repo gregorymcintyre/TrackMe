@@ -1,0 +1,86 @@
+define({ "api": [
+  {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "./public/generated-docs/main.js",
+    "group": "C__git_TrackMe_api_public_generated_docs_main_js",
+    "groupTitle": "C__git_TrackMe_api_public_generated_docs_main_js",
+    "name": ""
+  },
+  {
+    "type": "get",
+    "url": "/api/devices",
+    "title": "AllDevices An array of all devices",
+    "group": "Device",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[\n\t{\n\t\t\"_id\": \"dsohsdohsdofhsofhosfhsofh\",\n\t\t\"name\": \"Mary's iPhone\",\n\t\t\"user\": \"mary\",\n\t\t\"sensorData\": [\n\t\t\t{\n\t\t\t\t\"ts\": \"1529542230\",\n\t\t\t\t\"temp\": 12,\n\t\t\t\t\"loc\": {\n\t\t\t\t\t\"lat\": -37.84674,\n\t \t\t\t\t\"lon\": 145.115113\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ts\": \"1529572230\",\n\t\t\t\t\"temp\": 17,\n\t\t\t\t\"loc\": {\n\t\t\t\t\t\"lat\": -37.850026,\n\t\t\t\t\t\"lon\": 145.117683\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n\t\"User does not exist\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api.js",
+    "groupTitle": "Device",
+    "name": "GetApiDevices"
+  },
+  {
+    "type": "post",
+    "url": "/api/devices",
+    "title": "AllDevices An array of all devices",
+    "group": "Device",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n\t\"successfully added device and data\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{ \n\t\"error code and details show\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api.js",
+    "groupTitle": "Device",
+    "name": "PostApiDevices"
+  }
+] });

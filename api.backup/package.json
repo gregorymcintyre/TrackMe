@@ -1,0 +1,23 @@
+{
+  "name": "trackmeapi",
+  "version": "1.0.0",
+  "description": "mock-api",
+  "main": "api.js",
+  "scripts": {
+    
+    "start": "node api.js"
+    
+  },
+  "author": "Greg McIntyre",
+  "license": "ISC",
+  "dependencies": {
+    
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.4"
+  },
+  "devDependencies": {
+    
+    "now": "^15.8.5"
+  }
+}

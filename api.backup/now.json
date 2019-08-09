@@ -1,0 +1,53 @@
+{
+	"version": 2,
+	"builds": [
+		{ "src": "api.js", "use": "@now/node" },
+		{ "src": "public/generated-docs/**", "use": "@now/static" }
+	],
+	"alias": "218356779-sit-209",
+	"name": "218356779-sit-209",
+	"routes": [
+	  {
+		"src": "/docs",
+		"dest": "api.js",
+		"methods": ["GET"]
+	  },
+	  {
+		"src": "/api/devices/([^/]+)/device-history",
+		"dest": "api.js",
+		"methods": ["GET"]
+	  },
+	  {
+		"src": "/api/users/([^/]+)/devices",
+		"dest": "api.js",
+		"methods": ["GET"]
+	  },
+	  {
+		"src": "/api/send-command",
+		"dest": "api.js",
+		"methods": ["POST"]
+	  },
+	  {
+		"src": "/api/authenticate",
+		"dest": "api.js",
+		"methods": ["POST"]
+	  },
+	  {
+		"src": "/api/register",
+		"dest": "api.js",
+		"methods": ["POST"]
+	  },
+	  {
+		"src": "/api/devices",
+		"dest": "api.js",
+		"methods": ["POST", "GET"]
+	  },
+	  {
+		"src": "/(.*)",
+		"dest": "public/generated-docs/$1"
+	  }
+	],
+	"env": {
+		"MONGO_URL": "mongodb+srv://gmcintyre:Bj--D%25c%3FKwb%7DN%5BSj@cluster0-wt5gz.mongodb.net/test?retryWrites=true&w=majority"
+	}
+  }

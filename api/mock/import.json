@@ -1,5 +1,4 @@
-{
-  "devices": [
+[
     {
       "id": 0,
       "name": "Alex's iPhone",
@@ -67,11 +66,5 @@
         }
       ],
       "id": 4
-    },
-    {
-      "name": "Android",
-      "user": "Greg",
-      "id": 5
     }
   ]
-}
