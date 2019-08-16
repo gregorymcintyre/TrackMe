@@ -1,14 +1,13 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
   "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"build": "ls",
+    "build": "ls",
     "start": "nodemon -r dotenv/config api.js"
   },
-  "author": "",
+  "author": "Greg McIntyre",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -18,5 +17,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
-  }
+  },
+  "description": ""
 }

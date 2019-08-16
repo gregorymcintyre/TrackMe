@@ -47,9 +47,9 @@ app.post('/api/devices', (req, res) => {
     : res.send('successfully added device and data');
 	    }); });
 
-app.post('/api/send-command', (req, res) => {
-	console.log(req.body.command);
-    });
+//app.post('/api/send-command', (req, res) => {
+//	console.log(req.body.command);
+//    });
 
 app.post('/api/authenticate', (req, res) => {
 	const { user, password } = req.body;

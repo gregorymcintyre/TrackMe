@@ -9,6 +9,15 @@ const base = `${__dirname}/public`;
 //middleware to server static files
 app.use(express.static('public'));
 
+app.use(express.static('public'));
+
+app.use((req, res, next) => {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
+
+
 //route middleware for the root URI path
 app.get('/', function (req, res) {
 	res.sendFile(`${base}/device-list.html`);

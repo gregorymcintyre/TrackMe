@@ -3,6 +3,7 @@ $('#footer').load('footer.html');
 
 const users = JSON.parse(localStorage.getItem('users')) || [];
 const API_URL = 'http://localhost:5000/api';
+const MQTT_URL = 'http://localhost:5001/send-command'
 var isAuthenticated = localStorage.getItem('isAuthenticated');
 //const devices = JSON.parse(localStorage.getItem('devices')) || [];
 //const response = $.get('http://localhost:3001/devices');
@@ -48,7 +49,7 @@ const body = {
 	user,
 	sensorData
 };
-	$.post(`${API_URL}/devices`, body)
+	$.post(`${MQTT_URL}`, body)
 	.then(response => {
 		location.href = '/';
 	})
@@ -121,7 +122,24 @@ $('#login').on('click', function() {
 
 $('#send-command').on('click', function() {
 	const command = $('#command').val();
-	console.log(`command is: ${command}`);
+	const deviceID = $('#deviceID').val();
+	
+	//console.log(`command is: ${command}`);
+	const body = {
+	deviceID,
+	command
+	};
+	
+	$.post(`${API_URL}/send-command`, body)
+	.then(response => {
+		location.href = '/';
+	})
+	.catch(error => {
+		console.error(`Error: ${error}`);
+	});	
+});
+
+
 });
 
 const logout = () => {
