@@ -13,6 +13,8 @@ const port = 5001;
 
 const app = express();
 
+//const { URL, USERNAME, PASSWORD } = process.env;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
@@ -25,13 +27,9 @@ const client = mqtt.connect(URL, {
 
 client.on('connect', () => {
     console.log('connected');
+	//client.subscribe("test");
+	//client.publish("test/#", 'Overflow');
 }); 
-
-const topic = '/test/hello';
-const msg = 'Hello MQTT world!';
-client.publish(topic, msg, () => {
-	console.log('message sent...');
-});
 
 
 app.post('/send-command', (req, res) => {
